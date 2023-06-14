@@ -14,16 +14,16 @@ class PartnerStockDAOTest {
 
     @Test
     void testInsertDummyData() throws Exception {
-        String businessNumber = "19930902000";
+        String businessNumber = "2978600442";
         String productName = "칫솔";
-        String[] itemCodes = generateItemCodes(100);
+        String[] itemCodes = generateItemCodes(80);
         Random random = new Random();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String remarks1 = " 지속 가능한 원료를 사용해 제작한 친환경 칫솔입니다. 편안한 그립감과 초미세 브러쉬를 사용하여 깊숙한 청결함을 제공하며, 또한 세심하게 디자인되어 모든 가족이 사용할 수 있습니다.";
+        String remarks1 = " 지속 가능한 원료를 사용해 제작한 친환경 칫솔입니다.";
         String remarks2 = "내구성이 뛰어나고, 편안한 그립감을 제공합니다. 또한, 100% 생분해 가능하여 친환경적입니다.";
 
         int result = 0;
-        for (int i = 50; i < 100; i++) {
+        for (int i = 0; i < 50; i++) {
             PartnerStockVO partnerStock = new PartnerStockVO();
             partnerStock.setBusinessNumber(businessNumber);
             partnerStock.setProductName(productName);
@@ -42,7 +42,7 @@ class PartnerStockDAOTest {
     private String[] generateItemCodes(int count) {
         String[] itemCodes = new String[count];
         String prefix = "C";
-        for (int i = 51; i < count; i++) {
+        for (int i = 0; i < count; i++) {
             String suffix = String.format("%03d", i + 1);
             itemCodes[i] = prefix + suffix;
         }

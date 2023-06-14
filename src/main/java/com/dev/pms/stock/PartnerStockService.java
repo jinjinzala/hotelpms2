@@ -19,4 +19,9 @@ public class PartnerStockService {
         return partnerStockDAO.getStockList(businessNumber);
     }
 
+
+    public List<PartnerStockVO> getAllItemsList() throws Exception{
+        return partnerStockDAO.getAllItemsList();
+    }
+
 }

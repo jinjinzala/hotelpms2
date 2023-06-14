@@ -10,4 +10,6 @@ public interface PartnerStockDAO {
     public int setPartnerStock(PartnerStockVO partnerStockVO) throws Exception;
 
     public List<PartnerStockVO> getStockList(String businessNumber) throws  Exception;
+
+    public List<PartnerStockVO> getAllItemsList() throws  Exception;
 }

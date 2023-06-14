@@ -16,6 +16,13 @@
         WHERE PS.BUSINESSNUMBER = #{businessNumber}
     </select>
 
+
+    <select id="getAllItemsList" resultType="PartnerStockVO">
+        SELECT P.COMPANYNAME, PS.*
+        FROM PARTNER P
+        INNER JOIN PARTNERSTOCK PS ON P.BUSINESSNUMBER = PS.BUSINESSNUMBER;
+    </select>
+
     <resultMap type="PartnerStockVO" id="getPartnerStock">
     <!--Primary Key  -->
     <id column="itemId" property="itemId" />

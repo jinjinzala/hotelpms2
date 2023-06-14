@@ -18,6 +18,6 @@ public class PartnerStockVO {
     private Date registrationDate;
     private String remarks;
     private Boolean itemUsagestatus;
-
+    private  String companyName;
     private List<PartnerVO> partnerVOS;
 }

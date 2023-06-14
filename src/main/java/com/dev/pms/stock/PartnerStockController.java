@@ -27,4 +27,14 @@ public class PartnerStockController {
         mv.setViewName("stock/partnerStockList");
         return mv;
     }
+
+    @GetMapping("allItemsList")
+    public ModelAndView getAllItemsList() throws Exception {
+    ModelAndView mv = new ModelAndView();
+    List<PartnerStockVO> list =  partnerStockService.getAllItemsList();
+    mv.addObject("list",list);
+    mv.setViewName("stock/AllItemsList");
+
+    return mv;
+    }
 }
