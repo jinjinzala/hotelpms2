@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class CleanService {
 
+
     @Autowired
     private CleanDAO cleanDAO;
 
@@ -22,6 +23,5 @@ public class CleanService {
     public int deleteSchedule(CalenderVO calenderVO)throws Exception{
         System.out.println(calenderVO.getScheduleNumber());
         return cleanDAO.deleteSchedule(calenderVO);
-
     }
 }

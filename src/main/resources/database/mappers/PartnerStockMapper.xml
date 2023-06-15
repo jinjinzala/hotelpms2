@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dev.pms.stock.PartnerStockDAO">
+
     <insert id="setPartnerStock" parameterType="PartnerStockVO">
         INSERT INTO PARTNERSTOCK
         VALUES (NULL,#{businessNumber},#{productName},#{itemCode},#{unit},#{unitPrice},CURDATE(),#{remarks},#{itemUsagestatus})
@@ -16,12 +17,19 @@
         WHERE PS.BUSINESSNUMBER = #{businessNumber}
     </select>
 
-
     <select id="getAllItemsList" resultType="PartnerStockVO">
         SELECT P.COMPANYNAME, PS.*
         FROM PARTNER P
-        INNER JOIN PARTNERSTOCK PS ON P.BUSINESSNUMBER = PS.BUSINESSNUMBER;
+        INNER JOIN PARTNERSTOCK PS ON P.BUSINESSNUMBER = PS.BUSINESSNUMBER
     </select>
+
+    <update id="setItemStatus" parameterType="String">
+        UPDATE PARTNERSTOCK SET ITEMUSAGESTATUS = 1
+        WHERE ITEMID IN
+            ( SELECT pr.ITEMID FROM PARTNERSTOCK  pr
+            LEFT JOIN HOTELSTOCK hs ON pr.ITEMID = hs.ITEMID
+            WHERE pr.ITEMUSAGESTATUS = 0  AND hs.ITEMID IS NULL AND pr.ITEMID = #{itemId} )
+    </update>
 
     <resultMap type="PartnerStockVO" id="getPartnerStock">
     <!--Primary Key  -->

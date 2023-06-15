@@ -18,33 +18,4 @@
     </select>
 
 
-    <!--    <resultMap type="BookingVO" id="getReservationDetail">-->
-<!--        <id column="reservationNumber" property="reservationNumber"/>-->
-<!--        <result column="roomNumber" property="roomNumber"/>-->
-<!--        <result column="roomNumber" property="roomNumber"/>-->
-<!--        <result column="id" property="id"/>-->
-<!--        <result column="roomType" property="roomType"/>-->
-<!--        <result column="name" property="name"/>-->
-<!--        <result column="reservationEmail" property="reservationEmail"/>-->
-<!--        <result column="guestCount" property="guestCount"/>-->
-<!--        <result column="checkinDate" property="checkinDate"/>-->
-<!--        <result column="checkoutDate" property="checkoutDate"/>-->
-<!--        <result column="phoneNumber" property="phoneNumber"/>-->
-<!--        <association property="roomTypeVOs" javaType="RoomTypeVO" >-->
-<!--            <id column="roomType" property="roomType"/>-->
-<!--            <result column="capacity" property="capacity"/>-->
-<!--        </association>-->
-<!--    </resultMap>-->
-
-    <!--저장부분-->
-    <!--객실번호에 따른 다른 날짜 예약되어있는지 확인-->
-<!--    <select id="getResDate" parameterType="BookingVO" resultType="BookingVO">-->
-<!--        SELECT CHECKINDATE ,CHECKOUTDATE-->
-<!--        FROM BOOKING-->
-<!--        WHERE ROOMNUMBER = #{roomNumber} AND CHECKOUTDATE > #{checkoutDate}-->
-<!--    </select>-->
-   <!-- INSERT INTO PARTNER (BUSINESSNUMBER, CONTACTNAME, COMPANYNAME, EMAIL, ADDRESS, SETTLEMENTACCOUNT, PHONENUMBER, CEONAME, APPROVAL, REGISTRATIONDATE, SECTORS)
-    VALUES ('4578500300', 'Jueun Lee', 'Goodee Academy', 'jsj@goodee.co.kr', '(08505) 95 Gasan Digital 2-ro, Geumcheon-gu, Seoul (Gasan-dong, km Tower) 2nd, 3rd floor', 'Woori Bank 10020483202020', '010303030303', 'Seungjae Joo', 0, '2022-03-03', 'product');-->
-
-
 </mapper>

@@ -20,7 +20,7 @@ public class PartnerStockController {
     @GetMapping("stockList")
     public ModelAndView getStockList(String businessNumber) throws Exception {
         ModelAndView mv = new ModelAndView();
-        businessNumber = "70101010321";
+        businessNumber = "2978600442";
         List<PartnerStockVO> list = partnerStockService.getStockList(businessNumber);
         log.error("::::::stcok:{}:::::",list.get(0).getPartnerVOS().get(0).getCompanyName());
         mv.addObject("list",list);
@@ -37,7 +37,6 @@ public class PartnerStockController {
 
     return mv;
     }
-
 
 
 //    // 이벤트 핸들러 메서드

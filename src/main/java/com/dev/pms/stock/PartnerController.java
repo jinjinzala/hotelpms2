@@ -1,7 +1,7 @@
 package com.dev.pms.stock;
 
 
-import com.dev.pms.room.BookingVO;
+
 import com.dev.pms.room.ReservedVO;
 import com.dev.pms.user.UserVO;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +46,6 @@ public class PartnerController {
     //사업자등록번호가 DB에 존재하는지 확인하는 기능
     @PostMapping ("/findBusinessNumber")
     public ResponseEntity<String> findBusinessNumber(String businessNumber) throws Exception {
-
         boolean isMatch = partnerService.getBusinessNumber(businessNumber);
         System.out.println(isMatch);
         if (isMatch) {

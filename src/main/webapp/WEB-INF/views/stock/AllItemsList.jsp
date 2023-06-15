@@ -80,7 +80,9 @@
                                         <!-- 유저 정보-->
                                         <tr>
                                             <td><input type="checkbox" class="myCheckbox"></td>
-                                            <td>${vo.itemId}</td>
+                                            <div  id="vo.itemId">
+                                            <td class="d" data-cell-type="${vo.itemId}">${vo.itemId}</td>
+                                            </div>
                                             <td>${vo.companyName}</td>
                                             <td>${vo.productName}</td>
                                             <td>${vo.itemCode}</td>
@@ -152,6 +154,6 @@
         <script src="/js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="/js/datatables/datatables-simple-demo.js"></script>
-        <script src="/js/partnerStock.js"></script>
+        <script src="/js/allItemList.js"></script>
     </body>
 </html>

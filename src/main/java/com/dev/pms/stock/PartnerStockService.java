@@ -24,4 +24,9 @@ public class PartnerStockService {
         return partnerStockDAO.getAllItemsList();
     }
 
+    public int setItemStatus(PartnerStockVO partnerStockVO) throws Exception{
+        return partnerStockDAO.setItemStatus(partnerStockVO);
+    }
+
+
 }
