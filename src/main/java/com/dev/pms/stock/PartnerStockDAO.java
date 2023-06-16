@@ -10,4 +10,11 @@ public interface PartnerStockDAO {
     public int setPartnerStock(PartnerStockVO partnerStockVO) throws Exception;
 
     public List<PartnerStockVO> getStockList(String businessNumber) throws  Exception;
+
+    public List<PartnerStockVO> getAllItemsList() throws  Exception;
+
+    //public int setItemStatus(PartnerStockVO partnerStockVO) throws  Exception;
+
+    public int setUpdateitemList(int itemId) throws  Exception;
+    public int setMultipleHotelInventory(int itemId) throws  Exception;
 }
