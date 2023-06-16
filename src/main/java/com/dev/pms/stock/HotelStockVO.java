@@ -14,6 +14,7 @@ public class HotelStockVO {
     private String roomUsageStatus;
     private String productName;
     private String itemCode;
+
     private Long unitPrice;
 
 }

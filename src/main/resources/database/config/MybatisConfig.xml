@@ -11,7 +11,6 @@
         <typeAlias type="com.dev.pms.room.RoomVO" alias="RoomVO" />
         <typeAlias type="com.dev.pms.roomStatus.RoomStatusVO" alias="RoomStatusVO" />
         <typeAlias type="com.dev.pms.clean.CalenderVO" alias="CalenderVO"></typeAlias>
-
         <typeAlias type="com.dev.pms.stock.PartnerStockVO" alias="PartnerStockVO"></typeAlias>
         <typeAlias type="com.dev.pms.stock.PartnerVO" alias="PartnerVO"></typeAlias>
 

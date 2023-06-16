@@ -3,6 +3,36 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dev.pms.stock.PartnerStockDAO">
+
+    <select id="getAllItemsList" resultType="PartnerStockVO">
+        SELECT P.COMPANYNAME, PS.*
+        FROM PARTNER P
+        INNER JOIN PARTNERSTOCK PS ON P.BUSINESSNUMBER = PS.BUSINESSNUMBER
+    </select>
+
+
+    <insert id="setMultipleHotelInventory" parameterType="int">
+        INSERT INTO HOTELSTOCK (INVENTORYID, ITEMID, AUTOORDERQUANTITY, ORDERSTATUS)
+        SELECT NULL, ITEMID, 0,'양호'
+        FROM PARTNERSTOCK
+        WHERE ITEMUSAGESTATUS = 1
+        AND ITEMID NOT IN (SELECT ITEMID FROM HOTELSTOCK)
+        AND ITEMID = #{itemId}
+        AND NOT EXISTS (SELECT 1 FROM HOTELSTOCK WHERE ITEMID = #{itemId})
+    </insert>
+
+
+    <update id="setUpdateitemList" parameterType="int">
+        UPDATE PARTNERSTOCK SET ITEMUSAGESTATUS = 1
+        WHERE ITEMID IN
+        ( SELECT pr.ITEMID FROM PARTNERSTOCK  pr
+        LEFT JOIN HOTELSTOCK hs ON pr.ITEMID = hs.ITEMID
+        WHERE pr.ITEMUSAGESTATUS = 0  AND hs.ITEMID IS NULL AND pr.ITEMID = #{itemId} )
+    </update>
+
+
+
+    <!--10000JI  -->
     <insert id="setPartnerStock" parameterType="PartnerStockVO">
         INSERT INTO PARTNERSTOCK
         VALUES (NULL,#{businessNumber},#{productName},#{itemCode},#{unit},#{unitPrice},CURDATE(),#{remarks},#{itemUsagestatus})
@@ -17,8 +47,8 @@
     </select>
 
     <resultMap type="PartnerStockVO" id="getPartnerStock">
-    <!--Primary Key  -->
-    <id column="itemId" property="itemId" />
+        <!--Primary Key  -->
+        <id column="itemId" property="itemId" />
         <!-- 그외 나머지 -->
         <result column="businessNumber" property="businessNumber" />
         <result column="productName" property="productName" />
@@ -28,9 +58,9 @@
         <result column="registrationDate" property="registrationDate" />
         <result column="remarks" property="remarks" />
         <result column="itemUsagestatus" property="itemUsagestatus" />
-    <collection property="partnerVOS" javaType="List" ofType="PartnerVO" >
-        <id column="businessNumber"  property="businessNumber" />
-        <result column="companyName" property="companyName"/>
-    </collection>
+        <collection property="partnerVOS" javaType="List" ofType="PartnerVO" >
+            <id column="businessNumber"  property="businessNumber" />
+            <result column="companyName" property="companyName"/>
+        </collection>
     </resultMap>
 </mapper>
