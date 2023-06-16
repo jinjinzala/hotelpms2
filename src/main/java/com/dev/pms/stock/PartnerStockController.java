@@ -25,6 +25,8 @@ public class PartnerStockController {
         log.error("::::::stcok:{}:::::",list.get(0).getPartnerVOS().get(0).getCompanyName());
         mv.addObject("list",list);
         mv.setViewName("stock/partnerStockList");
+
+        System.out.printf("asdf");
         return mv;
     }
 }
